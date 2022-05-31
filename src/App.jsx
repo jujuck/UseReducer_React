@@ -11,6 +11,8 @@ function App() {
     switch (action.type) {
       case "ADD_TODO":
         return [...state, action.payload];
+      case "REMOVE_TODO":
+        return state.filter((todo) => todo.label !== action.payload.label && todo.description !== action.payload.description);
       default:
         return state;
     }
@@ -22,7 +24,7 @@ function App() {
   }
 
   const deleteTask = (task) => {
-    setTodos(todos.filter(todo => todo.label !== task.label && todo.description !== task.description))
+    dispatch({ type: "REMOVE_TODO", payload: task })
   }
 
   const setDone = (task) => {

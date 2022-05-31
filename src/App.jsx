@@ -13,6 +13,11 @@ function App() {
         return [...state, action.payload];
       case "REMOVE_TODO":
         return state.filter((todo) => todo.label !== action.payload.label && todo.description !== action.payload.description);
+      case "ADD_CLS":
+        const newToDo = [...state];
+        const index = newToDo.indexOf(action.payload)
+        newToDo[index].cls = 'text-success';
+        return newToDo;
       default:
         return state;
     }
@@ -28,10 +33,7 @@ function App() {
   }
 
   const setDone = (task) => {
-    const newToDo = [...todos];
-    const index = newToDo.indexOf(task)
-    newToDo[index].cls = 'text-success';
-    setTodos(newToDo);
+    dispatch({ type: "ADD_CLS", payload: task })
   }
 
   const setPause = (task) => {

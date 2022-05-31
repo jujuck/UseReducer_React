@@ -22,12 +22,19 @@ function App() {
     setTodos(newToDo);
   }
 
+  const setPause = (task) => {
+    const newToDo = [...todos];
+    const index = newToDo.indexOf(task)
+    newToDo[index].cls = 'text-warning';
+    setTodos(newToDo);
+  }
+
   return (
     <div className="App">
       <h1 className="text-center">My To Do List App for better learning</h1>
       <ToDoForm addTask={addTask} />
       <div className="container">
-        {todos.map(task => <ToDoCard task={task} key={task.label} deleteTask={deleteTask} setDone={setDone} />)}
+        {todos.map(task => <ToDoCard task={task} key={task.label} deleteTask={deleteTask} setDone={setDone} setPause={setPause} />)}
       </div>
     </div>
   )

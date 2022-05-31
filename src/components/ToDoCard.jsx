@@ -2,7 +2,7 @@ import React from 'react';
 import { BiTrash, BiPause } from 'react-icons/bi';
 import { MdDone } from 'react-icons/md';
 
-const ToDoCard = ({ task, deleteTask, setDone }) => {
+const ToDoCard = ({ task, deleteTask, setDone, setPause }) => {
   const dynamicCls = `row m-4 border shadow rounded ${task.cls}`
   return (
     <div className={dynamicCls}>
@@ -12,7 +12,7 @@ const ToDoCard = ({ task, deleteTask, setDone }) => {
       <div className='col-2'>{task.difficulty}</div>
       <div className='col-2'>
         <MdDone onClick={() => setDone(task)} />
-        <BiPause onClick={() => console.log("Pause")} />
+        <BiPause onClick={() => setPause(task)} />
         <BiTrash onClick={() => deleteTask(task)} />
       </div>
     </div>

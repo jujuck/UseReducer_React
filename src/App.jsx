@@ -15,12 +15,19 @@ function App() {
     setTodos(todos.filter(todo => todo.label !== task.label && todo.description !== task.description))
   }
 
+  const setDone = (task) => {
+    const newToDo = [...todos];
+    const index = newToDo.indexOf(task)
+    newToDo[index].cls = 'text-success';
+    setTodos(newToDo);
+  }
+
   return (
     <div className="App">
       <h1 className="text-center">My To Do List App for better learning</h1>
       <ToDoForm addTask={addTask} />
       <div className="container">
-        {todos.map(task => <ToDoCard task={task} key={task.label} deleteTask={deleteTask} />)}
+        {todos.map(task => <ToDoCard task={task} key={task.label} deleteTask={deleteTask} setDone={setDone} />)}
       </div>
     </div>
   )

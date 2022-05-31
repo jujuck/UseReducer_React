@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { MdAddTask } from 'react-icons/md';
 
-const ToDoForm = ({ dispatch }) => {
+const ToDoForm = ({ addTask }) => {
   const [label, setLabel] = useState('');
   const [description, setDescription] = useState('');
   const [type, setType] = useState('');
@@ -70,7 +71,7 @@ const ToDoForm = ({ dispatch }) => {
             </label>
           </div>
           <div className="col-auto">
-            <button className='btn btn-light' onClick={() => console.log("Add")}>Go !!!</button>
+            <button className='btn btn-light' onClick={() => addTask({ label, description, type, difficulty })}>Go !!!</button>
           </div>
         </div>
       </div>

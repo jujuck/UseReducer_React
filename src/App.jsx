@@ -1,11 +1,21 @@
-import react, { useState } from 'react';
+import react, { useState, useReducer } from 'react';
 import tasks from './data/tasks';
 import './App.css';
 import ToDoForm from './components/ToDoForm';
 import ToDoCard from './components/ToDoCard';
 
 function App() {
-  const [todos, setTodos] = useState(tasks);
+  const todoReducer = (state, action) => {
+    console.log(state)
+    console.log(action)
+    switch (action.type) {
+      case "":
+        return "";
+      default:
+        return state;
+    }
+  }
+  const [todos, dispatch] = useReducer(todoReducer, tasks);
 
   const addTask = (task) => {
     setTodos([...todos, task]);

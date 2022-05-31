@@ -20,7 +20,7 @@ Using a reducer, you will update the state of the task
 All good but your code is quite long and you have now a lot of function to manage your state... Quite problematic if your project grow stronger
 
 ## Let's reorganize it with the help of useReducer
-On this part, we will add a useReduer and prepare a ToDoReducer function to manage all the action on our state. We will reintégrate the action one after another. And then, change the call on the component. Ready !!!
+On this part, we will add a useReducer and prepare a ToDoReducer function to manage all the action on our state. We will reintégrate the action one after another. And then, at the end, we will change all the call of the function on the components. Ready !!!
 - 1/ Add a function *todoReducer* and instantiate the react useReduer hook bellow.
 ```
 const todoReducer = (state, action) => {
@@ -40,7 +40,7 @@ Remind: the function *todoReducer* accept two parameters, the first is the state
 
 - 2/ Add you first dispatch on the *addTask* function. Get your code of this function and place it in your first case in the *switch* of your *todoReducer*. The argument in the dispatch is an object with a type and a payload keys.
 ```
-dispatch({ type: "ADD_TODO", payload: { label, description, type, difficulty } })
+dispatch({ type: "ADD_TODO", payload: task })
 ```
 - 3/ Do the same for the *deleteTask* function.
 ```

@@ -16,7 +16,7 @@ function App() {
       case "ADD_CLS":
         const newToDo = [...state];
         const index = newToDo.indexOf(action.payload)
-        newToDo[index].cls = 'text-success';
+        newToDo[index].cls = action.cls;
         return newToDo;
       default:
         return state;
@@ -33,7 +33,7 @@ function App() {
   }
 
   const setDone = (task) => {
-    dispatch({ type: "ADD_CLS", payload: task })
+    dispatch({ type: "ADD_CLS", payload: task, cls: 'text-success' })
   }
 
   const setPause = (task) => {

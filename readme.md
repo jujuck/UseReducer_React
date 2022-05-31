@@ -22,30 +22,38 @@ All good but your code is quite long and you have now a lot of function to manag
 ## Let's reorganize it with the help of useReducer
 On this part, we will add a useReduer and prepare a ToDoReducer function to manage all the action on our state. We will reintégrate the action one after another. And then, change the call on the component. Ready !!!
 - 1/ Add a function *todoReducer* and instantiate the react useReduer hook bellow.
->const todoReducer = (state, action) => {
->    console.log(state)
->   console.log(action)
->    switch (action.type) {
->      case "":
->        return [...state, action.payload];
->      default:
->        return state;
->    }
->  }
->  const [todos, dispatch] = useReducer(todoReducer, tasks);
+```
+const todoReducer = (state, action) => {
+   console.log(state)
+   console.log(action)
+    switch (action.type) {
+      case "":
+        return [...state, action.payload];
+      default:
+        return state;
+    }
+ }
+ const [todos, dispatch] = useReducer(todoReducer, tasks);
+ ```
 
 Remind: the function *todoReducer* accept two parameters, the first is the state and should not be provid when calling the function, and the second is a object with at least two key (type, payload)
 
 - 2/ Add you first dispatch on the *addTask* function. Get your code of this function and place it in your first case in the *switch* of your *todoReducer*. The argument in the dispatch is an object with a type and a payload keys.
->dispatch({ type: "ADD_TODO", payload: { label, description, type, difficulty } })
+```
+dispatch({ type: "ADD_TODO", payload: { label, description, type, difficulty } })
+```
 - 3/ Do the same for the *deleteTask* function.
->dispatch({ type: "REMOVE_TODO", payload: task })
+```
+dispatch({ type: "REMOVE_TODO", payload: task })
+```
 - 4/ Do the same for the *setDone* function. In the switch, the return should send back the new state. Call the type 'ADD_CLS'. We will use it with the *pause*
 - 5/ The difference between the *setDone* and the *setPause* is the class CSS. So just add a cls property in your dispatch object with the 'text-success' and consume it in the switch case.
-> const newToDo = [...state];
-> const index = newToDo.indexOf(action.payload)
-> newToDo[index].cls = action.cls;
-> return newToDo;
+```
+const newToDo = [...state];
+const index = newToDo.indexOf(action.payload)
+newToDo[index].cls = action.cls;
+return newToDo;
+```
 - 6/ Now reuse your case to implement the *setPause* function with a correct dispatch
 
 All should be working back.

@@ -24,24 +24,12 @@ function App() {
   }
   const [todos, dispatch] = useReducer(todoReducer, tasks);
 
-  const deleteTask = (task) => {
-    dispatch({ type: "REMOVE_TODO", payload: task })
-  }
-
-  const setDone = (task) => {
-    dispatch({ type: "ADD_CLS", payload: task, cls: 'text-success' })
-  }
-
-  const setPause = (task) => {
-    dispatch({ type: "ADD_CLS", payload: task, cls: 'text-warning' })
-  }
-
   return (
     <div className="App">
       <h1 className="text-center">My To Do List App for better learning</h1>
       <ToDoForm dispatch={dispatch} />
       <div className="container">
-        {todos.map(task => <ToDoCard task={task} key={task.label} deleteTask={deleteTask} setDone={setDone} setPause={setPause} />)}
+        {todos.map(task => <ToDoCard task={task} key={task.label} dispatch={dispatch} />)}
       </div>
     </div>
   )

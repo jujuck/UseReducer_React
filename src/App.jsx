@@ -9,8 +9,8 @@ function App() {
     console.log(state)
     console.log(action)
     switch (action.type) {
-      case "":
-        return "";
+      case "ADD_TODO":
+        return [...state, action.payload];
       default:
         return state;
     }
@@ -18,7 +18,7 @@ function App() {
   const [todos, dispatch] = useReducer(todoReducer, tasks);
 
   const addTask = (task) => {
-    setTodos([...todos, task]);
+    dispatch({ type: "ADD_TODO", payload: task })
   }
 
   const deleteTask = (task) => {

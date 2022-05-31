@@ -37,10 +37,7 @@ function App() {
   }
 
   const setPause = (task) => {
-    const newToDo = [...todos];
-    const index = newToDo.indexOf(task)
-    newToDo[index].cls = 'text-warning';
-    setTodos(newToDo);
+    dispatch({ type: "ADD_CLS", payload: task, cls: 'text-warning' })
   }
 
   return (

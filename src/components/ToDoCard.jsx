@@ -2,7 +2,7 @@ import React from 'react';
 import { BiTrash, BiPause } from 'react-icons/bi';
 import { MdDone } from 'react-icons/md';
 
-const ToDoCard = ({ task }) => {
+const ToDoCard = ({ task, deleteTask }) => {
   return (
     <div className='row m-4 border shadow rounded'>
       <div className='col-2'>{task.label}</div>
@@ -12,7 +12,7 @@ const ToDoCard = ({ task }) => {
       <div className='col-2'>
         <MdDone onClick={() => console.log("Done")} />
         <BiPause onClick={() => console.log("Pause")} />
-        <BiTrash onClick={() => console.log("Delete")} />
+        <BiTrash onClick={() => deleteTask(task)} />
       </div>
     </div>
   )

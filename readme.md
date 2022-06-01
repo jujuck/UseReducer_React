@@ -3,6 +3,8 @@ Start git clone and nom install on the workshop. You will install the package fo
 Then, have a look to the porject. We have a set of fake task in the data folder. 
 In the `App.jsx`, we got two part. A first component `ToDoForm.jsx` in order to add a task to the list and a map on the data that display (`ToDoCard.jsx`) the task with three action icons.
 
+You can watch the live coding solution step by step here https://drive.google.com/file/d/1TiFT2g0H73MniwTUMjivAxCKLAplHucv/view?usp=sharing
+
 ## Your goal
 Using a reducer, you will update the state of the task
   - Adding a task with the data of the form

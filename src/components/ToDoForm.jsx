@@ -70,11 +70,14 @@ const ToDoForm = ({ dispatch }) => {
             </label>
           </div>
           <div className="col-auto">
-            <button className='btn btn-light' onClick={() => console.log("Add")}>Go !!!</button>
+            <button className='btn btn-light' onClick={() => dispatch({
+              type: 'ADD_TASK',
+              data: { label, description, type, difficulty }
+            })}>Go !!!</button>
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
